@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Celina ♡</title>
+<title>Una carta para Celina 💛</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
@@ -16,97 +16,130 @@
 body {
   margin: 0;
   min-height: 100vh;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #f7df83;
   color: #3d351f;
   font-family: Inter, Arial, sans-serif;
-  padding: 20px;
 }
 
-.container {
+.page {
+  width: 100%;
   max-width: 760px;
-  margin: 35px auto;
 }
 
 .card {
   background: #fffaf0;
-  padding: clamp(25px, 6vw, 55px);
   border-radius: 22px;
+  padding: clamp(26px, 6vw, 58px);
   box-shadow: 0 18px 50px rgba(75,59,14,.13);
 }
 
-/* SOBRE INICIAL */
-
-.cover {
-  min-height: 75vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.intro {
+  text-align: center;
 }
 
-.envelope-button {
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  box-shadow: none;
+.eyebrow {
+  margin-bottom: 18px;
+  color: #a18a4c;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+h1, h2, .letter-body, .question,
+.signature, .music-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+h1 {
+  margin: 0 0 14px;
+  font-size: clamp(42px, 8vw, 60px);
+  line-height: 1.02;
+}
+
+.subtitle {
+  max-width: 430px;
+  margin: 0 auto 26px;
+  color: #756b55;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.envelope-wrap {
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0 24px;
+  perspective: 800px;
 }
 
 .envelope {
-  width: 270px;
-  height: 175px;
-  background: #f4d88a;
   position: relative;
+  width: 250px;
+  height: 150px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  box-shadow: 0 12px 25px rgba(109,85,29,.14);
+  justify-content: center;
   overflow: hidden;
-  transition: transform .3s ease;
-}
-
-.envelope-button:hover .envelope {
-  transform: translateY(-5px);
-}
-
-.envelope span {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 30px;
-  color: #755c2b;
-  position: relative;
-  z-index: 1;
+  border-radius: 8px;
+  background: #f4d88a;
+  box-shadow: 0 12px 25px rgba(109,85,29,.14);
 }
 
 .envelope::before {
-  content: "";
+  content: '';
   position: absolute;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 0;
   height: 0;
-  border-left: 135px solid transparent;
-  border-right: 135px solid transparent;
-  border-top: 95px solid #f9e6b5;
+  border-left: 125px solid transparent;
+  border-right: 125px solid transparent;
+  border-top: 85px solid #f9e6b5;
   transform-origin: top;
   transition: transform 1s ease;
-  z-index: 2;
+}
+
+.envelope::after {
+  content: 'Para Celina ♡';
+  z-index: 1;
+  color: #755c2b;
+  font: 27px 'Cormorant Garamond', Georgia, serif;
 }
 
 .envelope.open::before {
   transform: rotateX(180deg);
 }
 
-/* CARTA */
-
-.letter {
-  display: none;
-  animation: aparecer 1s ease;
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 25px;
+  background: #eacb60;
+  color: #443817;
+  font: 600 14px Inter, Arial, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #c9a943;
 }
 
-@keyframes aparecer {
+button:hover {
+  transform: translateY(-2px);
+}
+
+.letter-screen {
+  display: none;
+  animation: appear .8s ease both;
+}
+
+@keyframes appear {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -114,61 +147,97 @@ body {
   }
 }
 
+.letter-title {
+  margin: 0 0 22px;
+  text-align: center;
+  font-size: 39px;
+}
+
 .letter-body {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 21px;
-  line-height: 1.75;
   color: #514832;
+  font-size: 20px;
+  line-height: 1.72;
 }
 
 .letter-body p {
-  margin-bottom: 20px;
+  margin: 0 0 19px;
 }
 
 .question {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  text-align: center;
-  font-size: clamp(30px, 6vw, 38px);
+  margin: 30px 0;
   color: #80611c;
+  text-align: center;
+  font-size: clamp(29px, 6vw, 36px);
   font-weight: 700;
-  margin: 35px 0;
+}
+
+.closing {
+  text-align: center;
 }
 
 .signature {
-  text-align: right;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 30px;
   margin-top: 25px;
+  text-align: right;
+  font-size: 28px;
 }
 
-/* SPOTIFY */
-
 .music {
-  margin-top: 35px;
-  padding: 12px;
-  background: #fff5d9;
+  margin-top: 34px;
+  padding: 20px;
+  border: 1px solid #f0dfae;
   border-radius: 16px;
+  background: #fff5d9;
+  text-align: center;
+}
+
+.music-title {
+  margin: 0 0 5px;
+  font-size: 26px;
+}
+
+.music p {
+  margin: 0 0 14px;
+  color: #756b55;
+  font-size: 13px;
 }
 
 .music iframe {
-  width: 100%;
-  height: 152px;
-  border: none;
-  border-radius: 12px;
   display: block;
+  width: 100%;
+  max-width: 440px;
+  height: 152px;
+  margin: 0 auto;
+  border: 0;
+  border-radius: 12px;
+}
+
+.footer {
+  margin-top: 25px;
+  color: #9b8d69;
+  text-align: center;
+  font-size: 11px;
 }
 
 @media (max-width: 520px) {
   body {
     padding: 12px;
+    align-items: flex-start;
   }
 
   .card {
-    padding: 25px 20px;
+    padding: 27px 21px;
   }
 
   .letter-body {
     font-size: 19px;
+  }
+
+  .letter-title {
+    font-size: 35px;
+  }
+
+  .music {
+    padding: 16px 12px;
   }
 }
 </style>
@@ -176,43 +245,53 @@ body {
 
 <body>
 
-<div class="container">
-<div class="card">
+<main class="page">
+<section class="card">
 
-<!-- SOBRE -->
+<div class="intro" id="intro">
 
-<section class="cover" id="cover">
+<div class="eyebrow">Una carta, solo para vos</div>
 
-<button class="envelope-button" id="openButton" aria-label="Abrir carta para Celina">
-  <div class="envelope" id="envelope">
-    <span>Para Celina ♡</span>
-  </div>
+<h1>Tengo algo<br>para decirte...</h1>
+
+<p class="subtitle">
+Celina, hay palabras que merecen un momento especial.
+</p>
+
+<div class="envelope-wrap">
+<div class="envelope" id="envelope"></div>
+</div>
+
+<button id="openButton">
+Abrir mi carta →
 </button>
 
-</section>
+</div>
 
-<!-- CARTA -->
+<article class="letter-screen" id="letter">
 
-<article class="letter" id="letter">
+<div class="eyebrow" style="text-align:center">
+Con todo mi cariño
+</div>
+
+<h2 class="letter-title">Celi: 💛</h2>
 
 <div class="letter-body">
-
-<p>Celi:</p>
 
 <p>
 Bueno, gorda, te hago esta carta porque te quería contar algunas cosas. Desde que te conocí aquella vez en lo de Joaquín, sentí muchas cosas por vos esa noche, las cuales me fuiste mostrando durante todo el tiempo en el que estuvimos juntos. Al principio fue divertido y después, por ciertas cosas, se complicaron un poco más las cosas. La verdad es que tuve un poco de miedo de que te fueras, pero supiste pasar esos momentos malos y me dejaste conocer otra parte de vos que me encanta. Me fuiste enamorando y gustándome cada vez más: desde tus tratos, tus palabras, tus gestos y tus locuras, hasta la forma en la que me supiste escuchar y acompañar cuando no estaba tan bien. Yo también traté de estar para vos siempre que lo necesitaras.
 </p>
 
 <p>
-Me enamoré de vos porque me mostraste a una Celina que no conocía: una chica atenta, cariñosa, amable, responsable, que siempre intenta ser su mejor versión y un montón de cosas más. Me enamoré de tus ocurrencias, de tu personalidad tan alegre, de tu energía, de tus partes físicas, de la paz que me transmitís y de esa luz tan radiante que generás. Sos una gran mujer, y eso me encanta.
+Me enamoré de vos porque me mostraste a una Celina que no conocía: una chica atenta, cariñosa, amable, responsable, que siempre intenta ser su mejor versión y un montón de cosas más. Me enamoré de tus ocurrencias, de tu personalidad tan alegre que tenés, de tu energía, de tus partes físicas, de la paz que me transmitís y de esa luz tan radiante que generás. Sos una gran mujer, eso me encanta.
 </p>
 
 <p>
-Hoy te escribo esto porque siento que te amo demasiado y te volviste una parte de mi vida muy importante, una parte que día a día me hace cada vez más feliz. Ya sean 10 minutos, 5 o horas, no importa: siempre que estoy con vos me alegrás el día. Siempre que quiero volver a vos y no estás, miro las fotos que nos sacamos y que siempre tengo en la funda del celu. También hiciste que viera cosas en mí y me ayudaste a crecer sin darte cuenta. Mejoré un montón de cosas estando a tu lado.
+Hoy te escribo esto porque siento que te amo demasiado y te volviste una parte de mi vida muy importante, la cual día a día me hace cada vez más feliz. Ya sean 10 minutos, 5 o horas, no importa: siempre que estoy con vos me alegra el día. Siempre que quiero volver a vos y no estás, miro las fotos que nos sacamos y que siempre tengo en la funda del celu. También hiciste que viera cosas en mí y me ayudaste a crecer sin darte cuenta. Mejoré un montón de cosas estando a tu lado.
 </p>
 
 <p>
-Por eso me siento seguro para preguntarte si querés ser mi compañera de vida, mi mejor amiga, la persona que siempre está y la que me hace más feliz. Y, por sobre todas las cosas, quería preguntarte si...
+Por eso me siento seguro para preguntarte si querés ser mi compañera de vida, mi mejor amiga, la persona que siempre está, la que me hace más feliz y, por sobre todas las cosas, quería preguntarte si...
 </p>
 
 </div>
@@ -221,52 +300,61 @@ Por eso me siento seguro para preguntarte si querés ser mi compañera de vida, 
 ¿Querés ser mi novia? 💛
 </div>
 
-<div class="letter-body">
-<p>
+<p class="letter-body closing">
 Sea cual sea tu respuesta, de verdad muchas gracias, Celi, por dejarme formar parte de tu vida y mostrarme una persona maravillosa.
 </p>
-</div>
 
 <div class="signature">
 Alba ♡
 </div>
 
-<!-- REPRODUCTOR ANTERIOR DE SPOTIFY -->
+<section class="music">
 
-<div class="music">
+<div class="music-title">
+Una canción para vos ♪
+</div>
+
+<p>Daylight — Taylor Swift</p>
+
 <iframe
 src="https://open.spotify.com/embed/track/1fzAuUVbzlhZ1lJAx9PtY6?utm_source=generator"
 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 loading="lazy"
 title="Daylight - Taylor Swift">
 </iframe>
+
+</section>
+
+<div class="footer">
+Hecho con amor ♡
 </div>
 
 </article>
 
-</div>
-</div>
+</section>
+</main>
 
 <script>
+const openButton = document.getElementById('openButton');
+const intro = document.getElementById('intro');
+const letter = document.getElementById('letter');
+const envelope = document.getElementById('envelope');
 
-const openButton = document.getElementById("openButton");
-const envelope = document.getElementById("envelope");
-const cover = document.getElementById("cover");
-const letter = document.getElementById("letter");
+openButton.addEventListener('click', function() {
 
-openButton.addEventListener("click", function() {
-
-  envelope.classList.add("open");
+  envelope.classList.add('open');
+  openButton.disabled = true;
+  openButton.textContent = 'Abriendo...';
 
   setTimeout(function() {
-    cover.style.display = "none";
-    letter.style.display = "block";
-    window.scrollTo(0, 0);
-  }, 1100);
+    intro.style.display = 'none';
+    letter.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 2600);
 
 });
-
 </script>
 
 </body>
 </html>
+
