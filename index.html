@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -35,7 +36,7 @@ body {
 
 .intro.hide {
     opacity: 0;
-    transform: scale(0.96);
+    transform: scale(.96);
     pointer-events: none;
     position: absolute;
     inset: 0;
@@ -130,7 +131,7 @@ h1 {
     background: #f7dfa2;
     clip-path: polygon(0 0, 100% 0, 50% 58%);
     transform-origin: top center;
-    transition: transform 0.9s ease;
+    transition: transform .9s ease;
     z-index: 5;
     backface-visibility: hidden;
 }
@@ -163,18 +164,11 @@ h1 {
     border-radius: 30px;
     font-size: 15px;
     cursor: pointer;
-    transition: transform .2s, background .2s;
     font-family: Arial, sans-serif;
-}
-
-.open-button:hover {
-    background: #684a22;
-    transform: translateY(-2px);
 }
 
 .open-button:disabled {
     opacity: .7;
-    cursor: default;
 }
 
 .letter-screen {
@@ -231,8 +225,41 @@ h1 {
     text-align: center !important;
     font-size: 25px !important;
     color: #94703a;
-    margin: 35px 0 !important;
+    margin: 35px 0 20px !important;
     font-weight: bold;
+}
+
+.answer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin: 25px auto 35px;
+    flex-wrap: wrap;
+}
+
+.answer-button {
+    border: none;
+    padding: 14px 38px;
+    border-radius: 30px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+    font-family: Arial, sans-serif;
+}
+
+.answer-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px #80602f30;
+}
+
+.yes-button {
+    background: #94703a;
+    color: white;
+}
+
+.no-button {
+    background: #eee4d2;
+    color: #725c3b;
 }
 
 .signature {
@@ -279,6 +306,81 @@ footer {
     font-size: 12px;
 }
 
+/* Pantallas de respuesta */
+
+.response-screen {
+    display: none;
+    min-height: 100vh;
+    padding: 25px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .8s ease;
+}
+
+.response-screen.show {
+    display: flex;
+}
+
+.response-screen.visible {
+    opacity: 1;
+}
+
+.response-card {
+    background: #fffaf0;
+    max-width: 580px;
+    width: 100%;
+    padding: 45px 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 45px #80602f25;
+    animation: paperAppear .8s ease;
+}
+
+.response-card h2 {
+    color: #94703a;
+    font-size: clamp(27px, 5vw, 38px);
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.response-card p {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #59472e;
+}
+
+.big-heart {
+    font-size: 65px;
+    margin-bottom: 20px;
+    animation: heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.16); }
+}
+
+.floating-heart {
+    position: fixed;
+    bottom: -40px;
+    font-size: 25px;
+    pointer-events: none;
+    animation: floatUp 4s linear forwards;
+    z-index: 10;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+
 @media (max-width: 480px) {
     .envelope-container {
         width: 230px;
@@ -295,6 +397,14 @@ footer {
 
     .letter-screen {
         padding: 25px 12px;
+    }
+
+    .answer-button {
+        padding: 13px 30px;
+    }
+
+    .response-card {
+        padding: 35px 23px;
     }
 }
 </style>
@@ -373,6 +483,16 @@ footer {
             ¿Querés ser mi novia? 💛
         </p>
 
+        <div class="answer-buttons">
+            <button class="answer-button yes-button" onclick="answerYes()">
+                ¡SÍ! 💛
+            </button>
+
+            <button class="answer-button no-button" onclick="answerNo()">
+                No 💔
+            </button>
+        </div>
+
         <p>
         Sea cual sea tu respuesta, de verdad muchas gracias, Celi, por dejarme
         formar parte de tu vida y mostrarme una persona maravillosa.
@@ -396,8 +516,42 @@ footer {
     </article>
 </section>
 
+<!-- Respuesta SÍ -->
+
+<section class="response-screen" id="yesScreen">
+    <div class="response-card">
+        <div class="big-heart">💛</div>
+
+        <h2>¡Me hiciste el hombre más feliz!</h2>
+
+        <p>
+        Gracias por dejarme ser tu compañero, por elegirme y por darme
+        la oportunidad de compartir la vida con vos. Prometo cuidarte,
+        acompañarte, hacerte reír y seguir eligiéndote cada día.
+        Ojalá nos queden muchísimos momentos hermosos por vivir juntos.
+        Te amo, Celi. ♡
+        </p>
+    </div>
+</section>
+
+<!-- Respuesta NO -->
+
+<section class="response-screen" id="noScreen">
+    <div class="response-card">
+        <div class="big-heart">♡</div>
+
+        <h2>Está bien, gorda. ♡</h2>
+
+        <p>
+        Gracias por ser sincera conmigo. Pase lo que pase, siempre voy
+        a estar para vos. Te amo.
+        </p>
+    </div>
+</section>
+
 <script>
 let cartaAbierta = false;
+let respuestaElegida = false;
 
 function openLetter() {
     if (cartaAbierta) return;
@@ -412,10 +566,8 @@ function openLetter() {
     button.disabled = true;
     button.textContent = "Abriendo tu carta...";
 
-    // Primero se abre el sobre
     envelope.classList.add("open");
 
-    // Después aparece la carta
     setTimeout(() => {
         intro.classList.add("hide");
         letterScreen.classList.add("show");
@@ -428,8 +580,59 @@ function openLetter() {
         requestAnimationFrame(() => {
             letterScreen.classList.add("visible");
         });
-
     }, 1500);
+}
+
+function showResponse(screenId) {
+    if (respuestaElegida) return;
+
+    respuestaElegida = true;
+
+    const letterScreen = document.getElementById("letterScreen");
+    const responseScreen = document.getElementById(screenId);
+
+    letterScreen.style.display = "none";
+
+    responseScreen.classList.add("show");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
+
+    requestAnimationFrame(() => {
+        responseScreen.classList.add("visible");
+    });
+}
+
+function answerYes() {
+    showResponse("yesScreen");
+    createHearts();
+}
+
+function answerNo() {
+    showResponse("noScreen");
+}
+
+function createHearts() {
+    const hearts = ["💛", "♡", "💖", "💕"];
+
+    for (let i = 0; i < 22; i++) {
+        const heart = document.createElement("div");
+
+        heart.className = "floating-heart";
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+        heart.style.fontSize = (18 + Math.random() * 20) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6500);
+    }
 }
 </script>
 
