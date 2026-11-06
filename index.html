@@ -1,15 +1,272 @@
-<div style="margin-top:28px;padding:18px;border-radius:16px;background:#fff9e9;text-align:center">
-  <div style="font-size:23px">♪</div>
-  <b>Una canción para vos</b>
-  <p>Daylight — Taylor Swift ♡</p>
 
-  <iframe
-    src="https://open.spotify.com/embed/track/1fzAuUVbzlhZ1lJAx9PtY6"
-    width="100%"
-    height="152"
-    frameborder="0"
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-    loading="lazy"
-    style="border-radius:12px">
-  </iframe>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Celina ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f7df83;
+  color: #3d351f;
+  font-family: Inter, Arial, sans-serif;
+  padding: 20px;
+}
+
+.container {
+  max-width: 760px;
+  margin: 35px auto;
+}
+
+.card {
+  background: #fffaf0;
+  padding: clamp(25px, 6vw, 55px);
+  border-radius: 22px;
+  box-shadow: 0 18px 50px rgba(75,59,14,.13);
+}
+
+/* SOBRE INICIAL */
+
+.cover {
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.envelope-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.envelope {
+  width: 270px;
+  height: 175px;
+  background: #f4d88a;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 12px 25px rgba(109,85,29,.14);
+  overflow: hidden;
+  transition: transform .3s ease;
+}
+
+.envelope-button:hover .envelope {
+  transform: translateY(-5px);
+}
+
+.envelope span {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 30px;
+  color: #755c2b;
+  position: relative;
+  z-index: 1;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 135px solid transparent;
+  border-right: 135px solid transparent;
+  border-top: 95px solid #f9e6b5;
+  transform-origin: top;
+  transition: transform 1s ease;
+  z-index: 2;
+}
+
+.envelope.open::before {
+  transform: rotateX(180deg);
+}
+
+/* CARTA */
+
+.letter {
+  display: none;
+  animation: aparecer 1s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.letter-body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 21px;
+  line-height: 1.75;
+  color: #514832;
+}
+
+.letter-body p {
+  margin-bottom: 20px;
+}
+
+.question {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  text-align: center;
+  font-size: clamp(30px, 6vw, 38px);
+  color: #80611c;
+  font-weight: 700;
+  margin: 35px 0;
+}
+
+.signature {
+  text-align: right;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 30px;
+  margin-top: 25px;
+}
+
+/* SPOTIFY */
+
+.music {
+  margin-top: 35px;
+  padding: 12px;
+  background: #fff5d9;
+  border-radius: 16px;
+}
+
+.music iframe {
+  width: 100%;
+  height: 152px;
+  border: none;
+  border-radius: 12px;
+  display: block;
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 12px;
+  }
+
+  .card {
+    padding: 25px 20px;
+  }
+
+  .letter-body {
+    font-size: 19px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<!-- SOBRE -->
+
+<section class="cover" id="cover">
+
+<button class="envelope-button" id="openButton" aria-label="Abrir carta para Celina">
+  <div class="envelope" id="envelope">
+    <span>Para Celina ♡</span>
+  </div>
+</button>
+
+</section>
+
+<!-- CARTA -->
+
+<article class="letter" id="letter">
+
+<div class="letter-body">
+
+<p>Celi:</p>
+
+<p>
+Bueno, gorda, te hago esta carta porque te quería contar algunas cosas. Desde que te conocí aquella vez en lo de Joaquín, sentí muchas cosas por vos esa noche, las cuales me fuiste mostrando durante todo el tiempo en el que estuvimos juntos. Al principio fue divertido y después, por ciertas cosas, se complicaron un poco más las cosas. La verdad es que tuve un poco de miedo de que te fueras, pero supiste pasar esos momentos malos y me dejaste conocer otra parte de vos que me encanta. Me fuiste enamorando y gustándome cada vez más: desde tus tratos, tus palabras, tus gestos y tus locuras, hasta la forma en la que me supiste escuchar y acompañar cuando no estaba tan bien. Yo también traté de estar para vos siempre que lo necesitaras.
+</p>
+
+<p>
+Me enamoré de vos porque me mostraste a una Celina que no conocía: una chica atenta, cariñosa, amable, responsable, que siempre intenta ser su mejor versión y un montón de cosas más. Me enamoré de tus ocurrencias, de tu personalidad tan alegre, de tu energía, de tus partes físicas, de la paz que me transmitís y de esa luz tan radiante que generás. Sos una gran mujer, y eso me encanta.
+</p>
+
+<p>
+Hoy te escribo esto porque siento que te amo demasiado y te volviste una parte de mi vida muy importante, una parte que día a día me hace cada vez más feliz. Ya sean 10 minutos, 5 o horas, no importa: siempre que estoy con vos me alegrás el día. Siempre que quiero volver a vos y no estás, miro las fotos que nos sacamos y que siempre tengo en la funda del celu. También hiciste que viera cosas en mí y me ayudaste a crecer sin darte cuenta. Mejoré un montón de cosas estando a tu lado.
+</p>
+
+<p>
+Por eso me siento seguro para preguntarte si querés ser mi compañera de vida, mi mejor amiga, la persona que siempre está y la que me hace más feliz. Y, por sobre todas las cosas, quería preguntarte si...
+</p>
+
 </div>
+
+<div class="question">
+¿Querés ser mi novia? 💛
+</div>
+
+<div class="letter-body">
+<p>
+Sea cual sea tu respuesta, de verdad muchas gracias, Celi, por dejarme formar parte de tu vida y mostrarme una persona maravillosa.
+</p>
+</div>
+
+<div class="signature">
+Alba ♡
+</div>
+
+<!-- REPRODUCTOR ANTERIOR DE SPOTIFY -->
+
+<div class="music">
+<iframe
+src="https://open.spotify.com/embed/track/1fzAuUVbzlhZ1lJAx9PtY6?utm_source=generator"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy"
+title="Daylight - Taylor Swift">
+</iframe>
+</div>
+
+</article>
+
+</div>
+</div>
+
+<script>
+
+const openButton = document.getElementById("openButton");
+const envelope = document.getElementById("envelope");
+const cover = document.getElementById("cover");
+const letter = document.getElementById("letter");
+
+openButton.addEventListener("click", function() {
+
+  envelope.classList.add("open");
+
+  setTimeout(function() {
+    cover.style.display = "none";
+    letter.style.display = "block";
+    window.scrollTo(0, 0);
+  }, 1100);
+
+});
+
+</script>
+
+</body>
+</html>
